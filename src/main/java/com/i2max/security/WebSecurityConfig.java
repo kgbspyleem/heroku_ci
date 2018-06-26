@@ -31,7 +31,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                  * Define the URLs that can be accesses without authentication
                  */
                 .authorizeRequests()
-                .antMatchers("/**",
+                .antMatchers("/",
                         "/favicon.ico",
                         "/404.html",
                         "/403.html",
@@ -45,16 +45,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                         "/fonts/**",
                         "/icons/**")
                 .permitAll()
-                /* Require all others to be authenticated */
-                .anyRequest().authenticated()
-                .and()
-                /* Add the filter that turns JWT into authentication */
-                .addFilter(new CanvasAuthorizationFilter(this.authenticationManager()))
-                /*
-                 * allow direct access to the POST form for Canvas use without a
-                 * _csrd token
-                 */
-                .csrf()
-                .ignoringAntMatchers("/sfdcauth/**");
+              ;
     }
 }
