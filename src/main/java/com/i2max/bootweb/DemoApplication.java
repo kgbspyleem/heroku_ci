@@ -27,6 +27,14 @@ public class DemoApplication {
     String home() { 
       return "Hello World!";
     }
+    
+    
+
+    @RequestMapping("/test1")
+    @ResponseBody
+    String home1() { 
+      return "Hello Worldsddasasd!";
+    }
 
     public static void main(String[] args) {
         SpringApplication.run(DemoApplication.class, args);
