@@ -19,7 +19,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(final HttpSecurity http) throws Exception { 
     	   http 
            .authorizeRequests()
-           .antMatchers("/test",
+           .antMatchers(
                    "/favicon.ico",
                    "/404.html",
                    "/403.html",
