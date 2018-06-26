@@ -3,13 +3,17 @@ package com.i2max.bootweb.controller.interceptor;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
  
-public class LoggerInterceptor extends HandlerInterceptorAdapter {
-	private static final Log log = LogFactory.getLog(LoggerInterceptor.class);
+ 
+@Component
+public class LoggerInterceptor extends HandlerInterceptorAdapter  {
+	  
+    private static final Logger logger = LoggerFactory.getLogger(LoggerInterceptor.class);  
 	
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
@@ -17,13 +21,13 @@ public class LoggerInterceptor extends HandlerInterceptorAdapter {
 		final String remoteHost = request.getRemoteHost();
 		final String remoteAddr = request.getRemoteAddr();
 		final String forwardedProto = request.getHeader("x-forwarded-proto");
-		log.info("remoteHost : " + remoteHost);
+		logger.info("remoteHost : " + remoteHost);
 		
-		log.info("remoteAddr : " + remoteAddr);
+		logger.info("remoteAddr : " + remoteAddr);
 		
-		if (log.isDebugEnabled()) {
-			log.debug("======================================          START1         ======================================");
-			log.debug(" Request URI \t:  " + request.getRequestURI());
+		if (logger.isDebugEnabled()) {
+			logger.debug("======================================          START1         ======================================");
+			logger.debug(" Request URI \t:  " + request.getRequestURI());
 		}
 		
 
@@ -36,12 +40,12 @@ public class LoggerInterceptor extends HandlerInterceptorAdapter {
     		if( true == request.getHeader("x-forwarded-proto").equalsIgnoreCase("https"))
     		{
 
-    	        log.debug("======================================  x-forwarded-proto Is https");
+    			logger.debug("======================================  x-forwarded-proto Is https");
     			return super.preHandle(request, response, handler);
     		}
         }
  
-       log.debug("======================================  x-forwarded-proto Is Not https Redirect Error Page");
+    	logger.debug("======================================  x-forwarded-proto Is Not https Redirect Error Page");
 	 //  response.sendRedirect("/DefaultErrorPage.jsp");
      //  return false;
      
@@ -50,10 +54,13 @@ public class LoggerInterceptor extends HandlerInterceptorAdapter {
 	
 	@Override
 	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
-		if (log.isDebugEnabled()) {
-			log.debug("======================================           END1          ======================================\n");
+		if (logger.isDebugEnabled()) {
+			logger.debug("======================================           END1          ======================================\n");
 		}
 	}
 	
-   
+	@Override
+	public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler,Exception ex) {
+		logger.info("================ Method Completed");
+	}
 }
