@@ -16,9 +16,7 @@ import com.i2max.bootweb.controller.interceptor.LoggerInterceptor;
 @ComponentScan(basePackages = { "com.i2max.bootweb" })
 public class WebMvcConfig implements WebMvcConfigurer {
 
-	@Autowired
-	@Qualifier(value = "httpInterceptor")
-	private HandlerInterceptor interceptor;
+ 
 
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
