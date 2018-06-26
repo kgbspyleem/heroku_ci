@@ -14,13 +14,12 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
   
-	private static final Logger logger = LoggerFactory.getLogger(WebSecurityConfig.class); 
-	 public WebSecurityConfig()
-	 {
-		 logger.info("============================================== WebSecurityConfig Constructor");
-	 }
-    @Override
-    protected void configure(final HttpSecurity http) throws Exception { 
+	private static final Logger logger = LoggerFactory.getLogger(WebSecurityConfig.class);  
+    
+	@Override
+    protected void configure(final HttpSecurity http) throws Exception {
+		 logger.info("============================================== WebSecurityConfig configure");
+
         http
     	.authorizeRequests()
 		.antMatchers("/**")
