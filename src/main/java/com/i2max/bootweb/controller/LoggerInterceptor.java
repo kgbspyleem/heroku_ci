@@ -1,4 +1,4 @@
-package com.i2max.bootweb.controller.interceptor;
+package com.i2max.bootweb.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
