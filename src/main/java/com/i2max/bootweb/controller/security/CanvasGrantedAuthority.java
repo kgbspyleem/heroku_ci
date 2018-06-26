@@ -19,11 +19,30 @@
  *                                                                            *
  * ========================================================================== *
  */
+package com.i2max.bootweb.controller.security;
+
+import org.springframework.security.core.GrantedAuthority;
+
 /**
- * Security related classes: the Authentication and Authorization based filters
- * and helper classes including web security
- *
+ * Authority utility class to be used with CanvasAuthentication
+ * 
  * @author swissel
  *
  */
-package com.i2max.security;
+public class CanvasGrantedAuthority implements GrantedAuthority {
+
+    private static final long serialVersionUID = 1L;
+    private final String      authName;
+
+    public CanvasGrantedAuthority(final Object name) {
+        this.authName = String.valueOf(name);
+    }
+
+    /**
+     * @see org.springframework.security.core.GrantedAuthority#getAuthority()
+     */
+    @Override
+    public String getAuthority() {
+        return this.authName;
+    }
+}

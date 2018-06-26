@@ -24,7 +24,7 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-package com.i2max.canvas;
+package com.i2max.bootweb.controller.canvas;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -19,7 +19,7 @@
  *                                                                            *
  * ========================================================================== *
  */
-package com.i2max.security;
+package com.i2max.bootweb.controller.security;
 
 import java.io.IOException;
 import java.util.ArrayList;

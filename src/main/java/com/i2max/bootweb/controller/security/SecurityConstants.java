@@ -19,30 +19,11 @@
  *                                                                            *
  * ========================================================================== *
  */
-package com.i2max.security;
+package com.i2max.bootweb.controller.security;
 
-import org.springframework.security.core.GrantedAuthority;
-
-/**
- * Authority utility class to be used with CanvasAuthentication
- * 
- * @author swissel
- *
- */
-public class CanvasGrantedAuthority implements GrantedAuthority {
-
-    private static final long serialVersionUID = 1L;
-    private final String      authName;
-
-    public CanvasGrantedAuthority(final Object name) {
-        this.authName = String.valueOf(name);
-    }
-
-    /**
-     * @see org.springframework.security.core.GrantedAuthority#getAuthority()
-     */
-    @Override
-    public String getAuthority() {
-        return this.authName;
-    }
+public final class SecurityConstants {
+    public static final String COOKIE_NAME      = "SFDC";
+    public static final String COOKIE_ATTRIBUTE = "com.salesforce.canvas";
+    public static final String USER_NAME_CLAIM  = "SFDCUserName";
+    public static final String ROLE_PREFIX      = "ROLE_";
 }

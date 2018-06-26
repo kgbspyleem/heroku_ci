@@ -19,11 +19,11 @@
  *                                                                            *
  * ========================================================================== *
  */
-package com.i2max.security;
-
-public final class SecurityConstants {
-    public static final String COOKIE_NAME      = "SFDC";
-    public static final String COOKIE_ATTRIBUTE = "com.salesforce.canvas";
-    public static final String USER_NAME_CLAIM  = "SFDCUserName";
-    public static final String ROLE_PREFIX      = "ROLE_";
-}
+/**
+ * Security related classes: the Authentication and Authorization based filters
+ * and helper classes including web security
+ *
+ * @author swissel
+ *
+ */
+package com.i2max.bootweb.controller.security;

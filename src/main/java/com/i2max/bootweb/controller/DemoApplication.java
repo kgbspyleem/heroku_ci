@@ -1,4 +1,4 @@
-package com.i2max.bootweb;
+package com.i2max.bootweb.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

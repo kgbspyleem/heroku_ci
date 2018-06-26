@@ -1,14 +1,14 @@
  
-package com.i2max.bootweb;
+package com.i2max.bootweb.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Configuration; 
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter; 
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
-import com.i2max.security.CanvasAuthorizationFilter;
+import com.i2max.bootweb.controller.security.CanvasAuthorizationFilter;
  
 @Configuration
 @EnableWebSecurity
@@ -18,7 +18,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     
 	@Override
     protected void configure(final HttpSecurity http) throws Exception {
-		 logger.info("============================================== WebSecurityConfig configure");
+		     logger.info("============================================== WebSecurityConfig configure");
 
 		    http.authorizeRequests()
             .antMatchers("/",
