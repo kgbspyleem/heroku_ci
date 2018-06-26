@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.mustache.MustacheEnvironmentCollector;
+import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.core.env.Environment;
 import org.springframework.boot.SpringApplication;
@@ -15,8 +16,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.stereotype.*;
  
 
-@Controller
-@SpringBootApplication
+@Controller 
+@SpringBootApplication(exclude = { SecurityAutoConfiguration.class })
 public class DemoApplication { 
 
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
