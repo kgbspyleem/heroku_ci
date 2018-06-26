@@ -10,7 +10,7 @@
 
   <Loggers>
     <!-- Log everything in custom package -->
-    <Logger name="com.i2max" level="debug" additivity="true">
+    <Logger name="com.i2max.bootweb" level="debug" additivity="true">
       <AppenderRef ref="Console" /> 
     </Logger>
 
