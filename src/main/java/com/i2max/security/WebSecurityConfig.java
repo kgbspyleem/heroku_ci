@@ -31,7 +31,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                  * Define the URLs that can be accesses without authentication
                  */
                 .authorizeRequests()
-                .antMatchers("/",
+                .antMatchers("/**",
                         "/favicon.ico",
                         "/404.html",
                         "/403.html",
