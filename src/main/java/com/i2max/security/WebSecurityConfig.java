@@ -20,31 +20,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(final HttpSecurity http) throws Exception {
     	
     	logger.info("====================================== TEST");
-        http
-                /* Allow the app to show in a frame */
-                .headers().frameOptions().disable()
-                .and()
-                /* always create a server session */
-                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.ALWAYS)
-                .and()
-                /*
-                 * Define the URLs that can be accesses without authentication
-                 */
-                .authorizeRequests()
-                .antMatchers("/",
-                        "/favicon.ico",
-                        "/404.html",
-                        "/403.html",
-                        "/500.html",
-                        "/sfdcauth/**",
-                        "/login",
-                        "/logout",
-                        "/password",
-                        "/images/**",
-                        "/css/**",
-                        "/fonts/**",
-                        "/icons/**")
-                .permitAll()
-              ;
+    	http.authorizeRequests()
+		.antMatchers("/admin/**").hasRole("ADMIN")
+		.antMatchers("/**").permitAll();
     }
 }
