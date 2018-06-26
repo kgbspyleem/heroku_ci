@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.*;
 
 import org.springframework.stereotype.*;
  
- @SpringBootApplication 
+
+@Controller 
+@SpringBootApplication 
 @ComponentScan(basePackages = "com.i2max.bootweb") 
 public class DemoApplication { 
 
