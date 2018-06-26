@@ -22,6 +22,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     	logger.info("====================================== TEST");
     	http.authorizeRequests()
 		.antMatchers("/admin/**").hasRole("ADMIN")
-		.antMatchers("/**").permitAll();
+		.antMatchers("/").permitAll();
     }
 }
