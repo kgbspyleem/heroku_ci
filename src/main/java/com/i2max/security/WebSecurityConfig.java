@@ -19,7 +19,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(final HttpSecurity http) throws Exception {
     	
- 
+    	logger.info("====================================== TEST");
         http
                 /* Allow the app to show in a frame */
                 .headers().frameOptions().disable()
