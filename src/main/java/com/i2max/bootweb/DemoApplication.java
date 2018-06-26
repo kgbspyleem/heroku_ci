@@ -17,7 +17,7 @@ import org.springframework.stereotype.*;
  
 
 @Controller 
-@SpringBootApplication(exclude = { SecurityAutoConfiguration.class })
+@SpringBootApplication 
 public class DemoApplication { 
 
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
