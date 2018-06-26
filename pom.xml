@@ -43,7 +43,7 @@
 		
 		
 		
-     <!-- Spring security 
+     <!-- Spring security 	--> 
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-core</artifactId>
@@ -61,8 +61,30 @@
             <artifactId>spring-security-web</artifactId>
             <version>${spring.security.version}</version>
         </dependency> 
-		-->
+        
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt</artifactId>
+			<version>0.9.0</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>1.10</version>
+		</dependency>
 		
+		<!--  jackson  -->
+		<dependency>
+           <groupId>com.fasterxml.jackson.core</groupId>
+           <artifactId>jackson-core</artifactId>
+          <version>2.7.9</version>
+        </dependency>
+		<dependency>
+          <groupId>com.fasterxml.jackson.core</groupId>
+          <artifactId>jackson-databind</artifactId>
+           <version>2.7.9</version>
+        </dependency>
+        
         <!-- MY BATIS -->
         <dependency> 
               <groupId>org.mybatis</groupId> 
