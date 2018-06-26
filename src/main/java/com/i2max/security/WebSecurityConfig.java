@@ -16,18 +16,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	private static final Logger logger = LoggerFactory.getLogger(WebSecurityConfig.class);
 
     @Override
-    protected void configure(final HttpSecurity http) throws Exception {
-    	 
-    	   http
-           /* Allow the app to show in a frame */
-           .headers().frameOptions().disable()
-           .and()
-           /* always create a server session */
-           .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.ALWAYS)
-           .and()
-           /*
-            * Define the URLs that can be accesses without authentication
-            */
+    protected void configure(final HttpSecurity http) throws Exception { 
+    	   http 
            .authorizeRequests()
            .antMatchers("/test",
                    "/favicon.ico",
@@ -42,15 +32,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                    "/css/**",
                    "/fonts/**",
                    "/icons/**")
-           .permitAll()
-           /* Require all others to be authenticated */
-           .anyRequest().authenticated()
-           .and() 
-           /*
-            * allow direct access to the POST form for Canvas use without a
-            * _csrd token
-            */
-           .csrf()
-           .ignoringAntMatchers("/sfdcauth/**");
+           .permitAll();
+       
     }
 }
