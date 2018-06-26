@@ -10,6 +10,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
  
+ 
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
   
@@ -17,10 +18,40 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(final HttpSecurity http) throws Exception {
-    	
-    	logger.info("====================================== TEST");
-    	http.authorizeRequests()
-		.antMatchers("/admin/**").hasRole("ADMIN")
-		.antMatchers("/**").permitAll();
+    	 
+    	   http
+           /* Allow the app to show in a frame */
+           .headers().frameOptions().disable()
+           .and()
+           /* always create a server session */
+           .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.ALWAYS)
+           .and()
+           /*
+            * Define the URLs that can be accesses without authentication
+            */
+           .authorizeRequests()
+           .antMatchers("/",
+                   "/favicon.ico",
+                   "/404.html",
+                   "/403.html",
+                   "/500.html",
+                   "/sfdcauth/**",
+                   "/login",
+                   "/logout",
+                   "/password",
+                   "/images/**",
+                   "/css/**",
+                   "/fonts/**",
+                   "/icons/**")
+           .permitAll()
+           /* Require all others to be authenticated */
+           .anyRequest().authenticated()
+           .and() 
+           /*
+            * allow direct access to the POST form for Canvas use without a
+            * _csrd token
+            */
+           .csrf()
+           .ignoringAntMatchers("/sfdcauth/**");
     }
 }
