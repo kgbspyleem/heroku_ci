@@ -21,7 +21,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		     logger.info("============================================== WebSecurityConfig configure");
 
 		    http.authorizeRequests()
-            .antMatchers("/",
+            .antMatchers("/sample",
                     "/favicon.ico",
                     "/404.html",
                     "/403.html",
