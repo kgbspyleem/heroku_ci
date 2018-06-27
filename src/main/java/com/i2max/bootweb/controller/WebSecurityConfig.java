@@ -22,7 +22,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 		    http.authorizeRequests()
             .antMatchers("/test",
-            		"/accessDenied.jsp",
+            		"/error",
             		"/sample",
                     "/favicon.ico",
                     "/404.html",
