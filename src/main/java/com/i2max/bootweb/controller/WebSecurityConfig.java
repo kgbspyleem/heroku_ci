@@ -47,9 +47,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
              * _csrd token
              */
             .csrf()
-            .ignoringAntMatchers("/sfdcauth/**") 
-            .and().formLogin().loginPage("/accessDenied.jsp")
-            .and().exceptionHandling().accessDeniedPage("/accessDenied.jsp") ;
+            .ignoringAntMatchers("/sfdcauth/**") ;
        
     }
 }
