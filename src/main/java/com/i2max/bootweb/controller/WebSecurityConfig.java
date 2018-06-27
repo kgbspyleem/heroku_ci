@@ -22,6 +22,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 		    http.authorizeRequests()
             .antMatchers("/test",
+            		"/accessDenied.jsp",
             		"/sample",
                     "/favicon.ico",
                     "/404.html",
@@ -48,7 +49,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             .csrf()
             .ignoringAntMatchers("/sfdcauth/**")
             .and()
-            .exceptionHandling().accessDeniedPage("/accessDenied.jsp");
+            .exceptionHandling().accessDeniedPage("/accessDenied.jsp") ;
        
     }
 }
