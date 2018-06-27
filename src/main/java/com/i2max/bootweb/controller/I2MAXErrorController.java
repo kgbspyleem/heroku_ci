@@ -22,7 +22,10 @@ public class I2MAXErrorController implements ErrorController  {
 	         
 	        if (status != null) {
 	            Integer statusCode = Integer.valueOf(status.toString());
-	         
+	          
+	            if(statusCode == HttpStatus.FORBIDDEN.value()) {
+	                return "error";
+	            }
 	            if(statusCode == HttpStatus.NOT_FOUND.value()) {
 	                return "error";
 	            }
