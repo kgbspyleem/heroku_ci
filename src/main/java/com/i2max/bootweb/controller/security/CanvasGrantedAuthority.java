@@ -1,10 +1,7 @@
 /** ========================================================================= *
  * Copyright (C)  2017, 2018 Salesforce Inc ( http://www.salesforce.com/      *
  *                            All rights reserved.                            *
- *                                                                            *
- *  @author     Stephan H. Wissel (stw) <swissel@salesforce.com>              *
- *                                       @notessensei                         *
- * @version     1.0                                                           *
+ *                                                                            * 
  * ========================================================================== *
  *                                                                            *
  * Licensed under the  Apache License, Version 2.0  (the "License").  You may *
@@ -25,8 +22,7 @@ import org.springframework.security.core.GrantedAuthority;
 
 /**
  * Authority utility class to be used with CanvasAuthentication
- * 
- * @author swissel
+ *  
  *
  */
 public class CanvasGrantedAuthority implements GrantedAuthority {

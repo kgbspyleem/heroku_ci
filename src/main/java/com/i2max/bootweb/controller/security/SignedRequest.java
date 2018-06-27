@@ -37,6 +37,8 @@ import javax.crypto.spec.SecretKeySpec;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.codec.binary.Base64;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -55,9 +57,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  *
  */
 public class SignedRequest {
-
-    public static JsonNode verifyAndDecodeAsJson(final HttpServletRequest request, final String input,
-            final String secret) throws SecurityException {
+  
+    public static JsonNode verifyAndDecodeAsJson(final HttpServletRequest request, final String input, final String secret) throws SecurityException {
 
         final String[] split = SignedRequest.getParts(input);
 
@@ -127,7 +128,7 @@ public class SignedRequest {
                 final String label = "Warning: Request was tampered with";
                 throw new SecurityException(label);
             }
-        } catch (final NoSuchAlgorithmException e) {
+        } catch (final NoSuchAlgorithmException e) { 
             throw new SecurityException(
                     String.format("Problem with algorithm [%s] Error [%s]", algorithm, e.getMessage()), e);
         } catch (final InvalidKeyException e) {

@@ -19,11 +19,25 @@
  *                                                                            *
  * ========================================================================== *
  */
+package com.i2max.bootweb.controller;
+
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+
 /**
- * Security related classes: the Authentication and Authorization based filters
- * and helper classes including web security
- *
+ * CLass that defines some of the pages that don't have their own special
+ * controller
+ * 
  * @author swissel
  *
  */
-package com.i2max.bootweb.controller.security;
+@Configuration
+public class MvcConfig extends WebMvcConfigurerAdapter {
+
+    @Override
+    public void addViewControllers(final ViewControllerRegistry registry) {
+        registry.addViewController("/").setViewName("home");
+    }
+
+}

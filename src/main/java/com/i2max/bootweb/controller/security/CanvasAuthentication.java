@@ -1,10 +1,6 @@
 /** ========================================================================= *
  * Copyright (C)  2017, 2018 Salesforce Inc ( http://www.salesforce.com/      *
- *                            All rights reserved.                            *
- *                                                                            *
- *  @author     Stephan H. Wissel (stw) <swissel@salesforce.com>              *
- *                                       @notessensei                         *
- * @version     1.0                                                           *
+ *                            All rights reserved.                            * 
  * ========================================================================== *
  *                                                                            *
  * Licensed under the  Apache License, Version 2.0  (the "License").  You may *
@@ -46,8 +42,7 @@ import io.jsonwebtoken.SignatureAlgorithm;
 /**
  * Authentication module that can translate a Canvas signed_request into a
  * Spring Authentication object including setting of a JWT Token
- *
- * @author swissel
+ * 
  *
  */
 public class CanvasAuthentication implements Authentication {

@@ -1,10 +1,6 @@
 /** ========================================================================= *
  * Copyright (C)  2017, 2018 Salesforce Inc ( http://www.salesforce.com/      *
- *                            All rights reserved.                            *
- *                                                                            *
- *  @author     Stephan H. Wissel (stw) <swissel@salesforce.com>              *
- *                                       @notessensei                         *
- * @version     1.0                                                           *
+ *                            All rights reserved.                            * 
  * ========================================================================== *
  *                                                                            *
  * Licensed under the  Apache License, Version 2.0  (the "License").  You may *
@@ -25,9 +21,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Map.Entry;
-import java.util.UUID;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.UUID; 
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
@@ -35,6 +29,8 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -48,14 +44,10 @@ import io.jsonwebtoken.Jwts;
 
 /**
  * Authorization filter that captures a JWT Token from session or Cookie and
- * authenticates the user based on that token
- *
- * @author swissel
- *
+ * authenticates the user based on that token 
  */
-public class CanvasAuthorizationFilter extends BasicAuthenticationFilter {
-
-    private final Logger logger = Logger.getLogger(this.getClass().getName());
+public class CanvasAuthorizationFilter extends BasicAuthenticationFilter { 
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     public CanvasAuthorizationFilter(final AuthenticationManager authenticationManager) {
         super(authenticationManager);
@@ -122,9 +114,11 @@ public class CanvasAuthorizationFilter extends BasicAuthenticationFilter {
                 result = new UsernamePasswordAuthenticationToken(user, UUID.randomUUID().toString(), roles);
             }
         } catch (final ExpiredJwtException expired) {
-            this.logger.log(Level.INFO, "JWT expired", expired);
-        } catch (final Exception e) {
-            this.logger.log(Level.SEVERE, e.getMessage(), e);
+        	logger.info("=========================== JWT expired " + expired.getMessage() );  
+        	 
+        } catch (final Exception e) { 
+
+        	logger.info("===========================  " + e.getMessage());  
             result = null;
         }
         return result;

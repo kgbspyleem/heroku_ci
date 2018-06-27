@@ -1,10 +1,7 @@
 /** ========================================================================= *
  * Copyright (C)  2017, 2018 Salesforce Inc ( http://www.salesforce.com/      *
  *                            All rights reserved.                            *
- *                                                                            *
- *  @author     Stephan H. Wissel (stw) <swissel@salesforce.com>              *
- *                                       @notessensei                         *
- * @version     1.0                                                           *
+ *                                                                            * 
  * ========================================================================== *
  *                                                                            *
  * Licensed under the  Apache License, Version 2.0  (the "License").  You may *
@@ -29,9 +26,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 /**
- * Configuration values we read from the environment
- *
- * @author swissel
+ * Configuration values we read from the environment 
  *
  */
 public enum Config {
