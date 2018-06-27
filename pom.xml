@@ -134,7 +134,31 @@
             <artifactId>httpclient</artifactId>
             <version>4.5.5</version>
         </dependency>
-        		
+        
+    	<!-- jstl -->	         
+        <dependency>
+            <groupId>org.apache.taglibs</groupId>
+            <artifactId>taglibs-standard-spec</artifactId>
+            <version>1.2.5</version> 
+        </dependency> 
+        
+        <dependency>
+            <groupId>org.apache.taglibs</groupId>
+            <artifactId>taglibs-standard-impl</artifactId>
+            <version>1.2.5</version> 
+        </dependency>
+        
+        <dependency>
+            <groupId>org.apache.taglibs</groupId>
+            <artifactId>taglibs-standard-jstlel</artifactId>
+            <version>1.2.5</version> 
+        </dependency>
+              		
+        <!-- Need this to compile JSP -->
+        <dependency>        
+           <groupId>org.apache.tomcat.embed</groupId>
+           <artifactId>tomcat-embed-jasper</artifactId>
+        </dependency> 
 	</dependencies>
 
 	<build>
