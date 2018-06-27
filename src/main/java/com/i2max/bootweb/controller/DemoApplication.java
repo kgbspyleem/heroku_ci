@@ -32,11 +32,7 @@ public class DemoApplication {
       return "Hello Worldsddasasd!";
     }
     
-    @RequestMapping("/error")
-    @ResponseBody
-    String errorPage() { 
-      return "Hello Worldsddasasd!";
-    }
+ 
      
 
     public static void main(String[] args) {
