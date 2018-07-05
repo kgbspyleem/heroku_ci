@@ -1,4 +1,4 @@
-package com.i2max.bootweb.controller;
+package com.i2max.bootweb.config;
  
 import javax.sql.DataSource;
 import org.springframework.boot.context.properties.ConfigurationProperties;
