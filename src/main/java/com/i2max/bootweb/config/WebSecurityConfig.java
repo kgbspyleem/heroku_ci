@@ -39,10 +39,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             .permitAll()
             /* Require all others to be authenticated */
             .anyRequest().authenticated()  
-            .and()
-            .formLogin()
-            .loginPage("/error")
-            .permitAll()
+       //     .and()
+       //     .formLogin()
+       //     .loginPage("/error")
+       //     .permitAll()
             .and()
             /* Add the filter that turns JWT into authentication */
             .addFilter(new CanvasAuthorizationFilter(this.authenticationManager()))
