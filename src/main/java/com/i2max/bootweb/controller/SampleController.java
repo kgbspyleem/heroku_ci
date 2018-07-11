@@ -14,7 +14,7 @@ public class SampleController {
 	    } 
 	    
 	    @RequestMapping("/hello")
-	    public String hellJsp( ) {
+	    public String helloJSP( ) {
 	   
 	        return "hello";
 	    } 
