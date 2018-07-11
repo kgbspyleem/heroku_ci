@@ -14,8 +14,8 @@ public class SampleController {
 	    } 
 	    
 	    @RequestMapping("/hello")
-	    public String helloJSP( ) {
-	   
+	    public String helloJSP(Model model ) { 
+	    	model.addAttribute("name", "SpringBlog from Millky");
 	        return "hello";
 	    } 
 	  
