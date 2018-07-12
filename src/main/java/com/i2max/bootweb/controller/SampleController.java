@@ -13,7 +13,7 @@ public class SampleController {
 	        return "sample";
 	    } 
 	    
-	    @RequestMapping("/hello1")
+	    @RequestMapping("/hello")
 	    public String helloJSP(Model model ) { 
 	    	model.addAttribute("name", "SpringBlog from Millky");
 	        return "hello";
