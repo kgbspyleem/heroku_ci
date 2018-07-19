@@ -32,9 +32,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     "/sfdcauth/**",
                     "/login",
                     "/logout",
-                    "/password",
-
-                    "/test/**",
+                    "/password", 
+                    "/mc_test/**",
                     "/images/**",
                     "/css/**",
                     "/fonts/**",
