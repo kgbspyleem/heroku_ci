@@ -24,6 +24,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             .antMatchers("/test",
             		"/error",
             		"/sample",
+            		"/execute",
             		"/hello",
                     "/favicon.ico",
                     "/404.html",
