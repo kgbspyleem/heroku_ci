@@ -81,7 +81,7 @@ define([
         } else {
             $('#select1').find('option[value='+ message +']').attr('selected', 'selected');
             $('#message').html(message);
-            showStep(null, 3);
+            showStep(null, 2);
         }
     }
 
