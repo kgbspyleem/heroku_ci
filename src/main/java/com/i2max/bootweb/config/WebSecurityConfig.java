@@ -56,6 +56,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             .csrf()
             .ignoringAntMatchers("/sfdcauth/**")
             .and().exceptionHandling().accessDeniedPage("/error");
+             
+		    http.headers().frameOptions().disable();
+ 
        
     }
 }
