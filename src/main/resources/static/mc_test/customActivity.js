@@ -10,9 +10,8 @@ define([
     var lastStepEnabled = false;
     var steps = [ // initialize to the same value as what's set in config.json for consistency
         { "label": "Step 1", "key": "step1" },
-        { "label": "Step 2", "key": "step2" },
-        { "label": "Step 3", "key": "step3" },
-        { "label": "Step 4", "key": "step4", "active": false }
+        { "label": "Step 2", "key": "step2" }, 
+        { "label": "Step 3", "key": "step3", "active": false }
     ];
     var currentStep = steps[0].key;
 
@@ -45,7 +44,7 @@ define([
         // If inactive, wizard hides it and skips over it during navigation
         $('#toggleLastStep').click(function() {
             lastStepEnabled = !lastStepEnabled; // toggle status
-            steps[3].active = !steps[3].active; // toggle active
+            steps[2].active = !steps[2].active; // toggle active
 
             connection.trigger('updateSteps', steps);
         });
@@ -98,8 +97,8 @@ define([
 
     function onClickedNext () {
         if (
-            (currentStep.key === 'step3' && steps[3].active === false) ||
-            currentStep.key === 'step4'
+            (currentStep.key === 'step2' && steps[23].active === false) ||
+            currentStep.key === 'step3'
         ) {
             save();
         } else {
@@ -149,28 +148,9 @@ define([
                     visible: true
                 });
                 break;
+       
             case 'step3':
                 $('#step3').show();
-                connection.trigger('updateButton', {
-                     button: 'back',
-                     visible: true
-                });
-                if (lastStepEnabled) {
-                    connection.trigger('updateButton', {
-                        button: 'next',
-                        text: 'next',
-                        visible: true
-                    });
-                } else {
-                    connection.trigger('updateButton', {
-                        button: 'next',
-                        text: 'done',
-                        visible: true
-                    });
-                }
-                break;
-            case 'step4':
-                $('#step4').show();
                 break;
         }
     }
