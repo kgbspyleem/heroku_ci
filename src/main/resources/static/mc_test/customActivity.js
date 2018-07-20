@@ -44,7 +44,7 @@ define([
         // If inactive, wizard hides it and skips over it during navigation
         $('#toggleLastStep').click(function() {
             lastStepEnabled = !lastStepEnabled; // toggle status
-            steps[2].active = !steps[2].active; // toggle active
+            steps[3].active = !steps[3].active; // toggle active
 
             connection.trigger('updateSteps', steps);
         });
@@ -97,7 +97,7 @@ define([
 
     function onClickedNext () {
         if (
-            (currentStep.key === 'step2' && steps[23].active === false) ||
+            (currentStep.key === 'step2' && steps[2].active === false) ||
             currentStep.key === 'step3'
         ) {
             save();
@@ -136,19 +136,27 @@ define([
                     visible: false
                 });
                 break;
+ 
             case 'step2':
                 $('#step2').show();
                 connection.trigger('updateButton', {
-                    button: 'back',
-                    visible: true
+                     button: 'back',
+                     visible: true
                 });
-                connection.trigger('updateButton', {
-                    button: 'next',
-                    text: 'next',
-                    visible: true
-                });
+                if (lastStepEnabled) {
+                    connection.trigger('updateButton', {
+                        button: 'next',
+                        text: 'next',
+                        visible: true
+                    });
+                } else {
+                    connection.trigger('updateButton', {
+                        button: 'next',
+                        text: 'done',
+                        visible: true
+                    });
+                }
                 break;
-       
             case 'step3':
                 $('#step3').show();
                 break;
