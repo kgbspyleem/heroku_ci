@@ -26,7 +26,15 @@
                     "foundSignupDate": ""
                 }
             ],
-            "url": "https://leemsecond.herokuapp.com/execute"
+            "url": "https://leemsecond.herokuapp.com/execute",
+ 
+			"verb": "POST",
+			"body": "",
+			"header": "",
+			"format": "json",
+			"useJwt": true,
+			"customerKey": "3w_hdm4kG0HdNzKl7BwbDWVYCVItxfc5VUkw-sChnJ0tJKLSu4quursNfA-oHLeoYyb5ytWkL4VIWTle0y73eMslMRzfjRUXJ7ilpN5FfZp_ke-vzexrOgErKyA-10w5ESlmLoIWs7twMbCTmXyyLKqPKZDWJY2X0SWotUlIqjM9lfGFd1y0vtG-7byRxD-CCcM_Oo5iCX0UE0IPUDebttIBRsSFZorrHdcPBPcTqo-JV_48i0kKWbxh5ySgwA2",
+			"timeout": 90000
         }
     },
     "configurationArguments": { 
