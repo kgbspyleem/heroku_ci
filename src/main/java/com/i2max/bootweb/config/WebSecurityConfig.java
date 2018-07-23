@@ -35,7 +35,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     "/logout",
                     "/password", 
                     "/mc_test/**", 
- 
+
+                    "/mc_test/execute", 
+                    
+                    "/mc_test/publish", 
+                    
+                    "/mc_test/validate", 
+                    "/mc_test/save", 
+                    "/mc_test/stop", 
                     "/images/**",
                     "/css/**",
                     "/fonts/**",
