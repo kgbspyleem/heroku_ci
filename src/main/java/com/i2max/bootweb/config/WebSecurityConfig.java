@@ -34,15 +34,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     "/login",
                     "/logout",
                     "/password", 
-                    "/mc_test/**", 
 
-                    "/mc_test/execute", 
-                    
-                    "/mc_test/publish", 
-                    
-                    "/mc_test/validate", 
-                    "/mc_test/save", 
-                    "/mc_test/stop", 
+                    "/mc_test/", 
+                    "/mc_test/**",  
                     "/images/**",
                     "/css/**",
                     "/fonts/**",
@@ -63,8 +57,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
              */
             .csrf()
             .ignoringAntMatchers("/sfdcauth/**")
-            .and().exceptionHandling().accessDeniedPage("/error");
-             
+            .and().exceptionHandling().accessDeniedPage("/error"); 
 		    http.headers().frameOptions().disable();
  
        
