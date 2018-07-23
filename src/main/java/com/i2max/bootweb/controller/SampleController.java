@@ -24,13 +24,10 @@ public class SampleController {
 	        return "hello";
 	    } 
 	   
-        @RequestMapping(value = "/execute", method = RequestMethod.POST)
+        @RequestMapping(value = "/mc_test/execute", method = RequestMethod.POST)
 	    @ResponseBody
-	    public String execute(@RequestParam(value="encodedJWT ", defaultValue="") String encodedJWT ,@RequestParam(value="secret", defaultValue="") String secret  ) { 
-        	
-        	
-        	logger.info("encodedJWT secret =================================" + encodedJWT + "=============" + secret);
-	    	 
+	    public String execute(@RequestParam(value="encodedJWT ", defaultValue="") String encodedJWT ,@RequestParam(value="secret", defaultValue="") String secret  ) {   
+        	logger.info("encodedJWT secret =================================" + encodedJWT + "=============" + secret); 
 	        return "Hello World!";
 	    }
 	    
