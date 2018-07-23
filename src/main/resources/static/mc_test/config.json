@@ -53,14 +53,7 @@
 			"customerKey": "OR5Os0EfW47UpO0FCtgfExDfTqNeiQW0nOOs-LRKcXiH65X0anGd5lkp6NQ1OZE2Xdd3_vLgL5Zb4OMqtSVf6x2PtEa93iicP8EukApowlq5Wc5zz5U1UKmDx3Qh_Xl1JCdtFrixby-eiisJL4hQEHns4MALU0qZNPv0ygZiGAg1Wm65WYEmpmbonoSnwteOFCJbLw1_Wmxdj1XdCQ2FVNcOEXF35w7WAJE75EAWepLMY2x7zmSu2MhrpMkLlQ2"
 
        },
-       "validate": {
-           "url": "https://leemsecond.herokuapp.com/mc_test/validate",
-			"verb": "GET",
-			"body": "",
-			"useJwt": false,
-			"customerKey": "OR5Os0EfW47UpO0FCtgfExDfTqNeiQW0nOOs-LRKcXiH65X0anGd5lkp6NQ1OZE2Xdd3_vLgL5Zb4OMqtSVf6x2PtEa93iicP8EukApowlq5Wc5zz5U1UKmDx3Qh_Xl1JCdtFrixby-eiisJL4hQEHns4MALU0qZNPv0ygZiGAg1Wm65WYEmpmbonoSnwteOFCJbLw1_Wmxdj1XdCQ2FVNcOEXF35w7WAJE75EAWepLMY2x7zmSu2MhrpMkLlQ2"
-
-       },
+      
        "stop": {
            "url": "https://leemsecond.herokuapp.com/mc_test/stop",
 			"verb": "GET",

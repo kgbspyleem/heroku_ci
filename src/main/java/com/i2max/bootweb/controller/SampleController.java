@@ -31,7 +31,7 @@ public class SampleController {
 		        return "Hello test!";
 		    }
 	    
-        @RequestMapping(value = "/mc_test/execute" )
+        @RequestMapping(value = "/mc_test/execute", method = RequestMethod.GET)
 	    @ResponseBody
 	    public String execute(@RequestParam(value="encodedJWT ", defaultValue="") String encodedJWT ,@RequestParam(value="secret", defaultValue="") String secret  ) {   
         	logger.info("encodedJWT secret =================================" + encodedJWT + "=============" + secret); 
@@ -39,28 +39,28 @@ public class SampleController {
 	    }
 	    
 	    
-        @RequestMapping(value = "/mc_test/save" )
+        @RequestMapping(value = "/mc_test/save" , method = RequestMethod.GET)
   	    @ResponseBody
   	    public String mc_save(@RequestParam(value="encodedJWT ", defaultValue="") String encodedJWT ,@RequestParam(value="secret", defaultValue="") String secret  ) {   
           	logger.info("encodedJWT secret =================================" + encodedJWT + "=============" + secret); 
   	        return "save World!";
   	    }
   	    
-        @RequestMapping(value = "/mc_test/publish" )
+        @RequestMapping(value = "/mc_test/publish" , method = RequestMethod.GET)
   	    @ResponseBody
   	    public String mc_publish(@RequestParam(value="encodedJWT ", defaultValue="") String encodedJWT ,@RequestParam(value="secret", defaultValue="") String secret  ) {   
           	logger.info("encodedJWT secret =================================" + encodedJWT + "=============" + secret); 
   	        return "publish World!";
   	    }
   	    
-        @RequestMapping(value = "/mc_test/validate" )
+        @RequestMapping(value = "/mc_test/validate", method = RequestMethod.GET)
   	    @ResponseBody
   	    public String mc_validate(@RequestParam(value="encodedJWT ", defaultValue="") String encodedJWT ,@RequestParam(value="secret", defaultValue="") String secret  ) {   
           	logger.info("encodedJWT secret =================================" + encodedJWT + "=============" + secret); 
   	        return "validate World!";
   	    }
   	    
-        @RequestMapping(value = "/mc_test/stop" )
+        @RequestMapping(value = "/mc_test/stop", method = RequestMethod.GET)
   	    @ResponseBody
   	    public String mc_stop(@RequestParam(value="encodedJWT ", defaultValue="") String encodedJWT ,@RequestParam(value="secret", defaultValue="") String secret  ) {   
           	logger.info("encodedJWT secret =================================" + encodedJWT + "=============" + secret); 
