@@ -31,7 +31,7 @@ public class SampleController {
 		        return "Hello test!";
 		    }
 	    
-        @RequestMapping(value = "/mc_test/execute", method = RequestMethod.POST)
+        @RequestMapping(value = "/mc_test/execute", method = RequestMethod.GET)
 	    @ResponseBody
 	    public String execute(@RequestParam(value="encodedJWT ", defaultValue="") String encodedJWT ,@RequestParam(value="secret", defaultValue="") String secret  ) {   
         	logger.info("encodedJWT secret =================================" + encodedJWT + "=============" + secret); 
