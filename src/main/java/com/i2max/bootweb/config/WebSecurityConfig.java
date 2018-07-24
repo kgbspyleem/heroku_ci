@@ -10,17 +10,20 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 
 import com.i2max.bootweb.controller.security.CanvasAuthorizationFilter;
  
-//@Configuration
-//@EnableWebSecurity
-
-public class WebSecurityConfig {// extends WebSecurityConfigurerAdapter {
+@Configuration
+@EnableWebSecurity
+public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
   
 	private static final Logger logger = LoggerFactory.getLogger(WebSecurityConfig.class);  
     
-//	@Override
-//  protected void configure(final HttpSecurity http) throws Exception {
-//    logger.info("============================================== WebSecurityConfig configure");
-//
+ 	@Override
+   protected void configure(final HttpSecurity http) throws Exception {
+     logger.info("============================================== WebSecurityConfig configure");
+ 
+     http.authorizeRequests().antMatchers("/**").permitAll();
+     
+     
+     
 //   http.authorizeRequests()
 //   .antMatchers("/test",
 //   		"/error",
@@ -62,5 +65,5 @@ public class WebSecurityConfig {// extends WebSecurityConfigurerAdapter {
 //   http.headers().frameOptions().disable();
  
        
-  //  }
+   }
 }
