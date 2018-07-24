@@ -21,7 +21,7 @@ public class DemoApplication {
 
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    @RequestMapping("/test")
+    @RequestMapping(value = "/test" , method= RequestMethod.POST)
     @ResponseBody
     String home() { 
       return "Hello World!";

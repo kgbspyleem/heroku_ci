@@ -29,7 +29,7 @@ public class SampleController {
 	 
 	   
   	    
-  	    @RequestMapping(value="/mc_test/save", method= RequestMethod.POST, produces = "application/json") 
+  	    @RequestMapping(value="/mc_test/save", method= RequestMethod.POST ) 
   	    public String mc_save( ) {   
        //   	logger.info("encodedJWT secret =================================" + encodedJWT + "=============" + secret); 
   	        return "(\"status\" : \"ok\"}";
