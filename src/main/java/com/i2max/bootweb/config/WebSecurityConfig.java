@@ -20,10 +20,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
    protected void configure(final HttpSecurity http) throws Exception {
      logger.info("============================================== WebSecurityConfig configure");
  
-     http.authorizeRequests().antMatchers("/**").permitAll();
-     
-     
-     
+     http.authorizeRequests().antMatchers("/**").permitAll(); 
 //   http.authorizeRequests()
 //   .antMatchers("/test",
 //   		"/error",
