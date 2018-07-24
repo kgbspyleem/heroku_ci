@@ -12,6 +12,7 @@ import com.i2max.bootweb.controller.security.CanvasAuthorizationFilter;
  
 //@Configuration
 //@EnableWebSecurity
+
 public class WebSecurityConfig {// extends WebSecurityConfigurerAdapter {
   
 	private static final Logger logger = LoggerFactory.getLogger(WebSecurityConfig.class);  
