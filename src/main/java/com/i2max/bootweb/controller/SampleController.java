@@ -41,8 +41,8 @@ public class SampleController {
 	    
         @RequestMapping(value = "/mc_test/save" , method = RequestMethod.POST)
   	    @ResponseBody
-  	    public String mc_save(@RequestParam(value="encodedJWT ", defaultValue="") String encodedJWT ,@RequestParam(value="secret", defaultValue="") String secret  ) {   
-          	logger.info("encodedJWT secret =================================" + encodedJWT + "=============" + secret); 
+  	    public String mc_save( ) {   
+       //   	logger.info("encodedJWT secret =================================" + encodedJWT + "=============" + secret); 
   	        return "(\"status\" : \"ok\"}";
   	    }
   	    
