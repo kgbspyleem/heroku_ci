@@ -39,10 +39,9 @@ public class SampleController {
         	logger.info("encodedJWT secret =================================" + encodedJWT + "=============" + secret); 
 	        return "Hello World!";
 	    }
-	    
-	    
-	    @PostMapping(value = "/mc_test/save" )
-  	    @ResponseBody
+	   
+  	    
+  	    @RequestMapping(value="/mc_test/save", method= RequestMethod.POST, produces = "application/json") 
   	    public String mc_save( ) {   
        //   	logger.info("encodedJWT secret =================================" + encodedJWT + "=============" + secret); 
   	        return "(\"status\" : \"ok\"}";
