@@ -26,8 +26,8 @@ public class SampleController {
 	    	model.addAttribute("name", "SpringBlog from Millky");
 	        return "hello";
 	    } 
-	   
-	    @PostMapping(value = "/mc_test/test") 
+	    
+	    @RequestMapping(value="/mc_test/test", method= RequestMethod.POST, produces = "application/json") 
         public String test( ) {   
 	     //   	logger.info("encodedJWT secret =================================" + encodedJWT + "=============" + secret); 
 		        return "Hello test!";
