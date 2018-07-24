@@ -26,9 +26,7 @@ public class DemoApplication {
     String home() { 
       return "Hello World!";
     }
-    
-    
-
+     
     @RequestMapping("/test1")
     @ResponseBody
     String home1() { 
