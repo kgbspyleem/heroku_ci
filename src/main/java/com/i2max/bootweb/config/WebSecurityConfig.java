@@ -57,10 +57,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
       * _csrd token
       */
      .csrf()
-      .ignoringAntMatchers("/sfdcauth/**")
+      .ignoringAntMatchers("/sfdcauth/**", "/mc_test/**")
     
      .and().exceptionHandling().accessDeniedPage("/error"); 
       http.headers().frameOptions().disable();
-      http.csrf().disable();
+   //   http.csrf().disable();
    }
 }
