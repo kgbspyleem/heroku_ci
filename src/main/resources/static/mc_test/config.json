@@ -1,6 +1,6 @@
 {
 
-
+    "key": "5b7957f6-3bab-418c-993d-94f6c19500a4",
 
     "workflowApiVersion": "1.1",
     "metaData": {
@@ -44,7 +44,8 @@
             "url": "https://leemsecond.herokuapp.com/mc_test/save/",
 			"verb": "POST",
 			"body": "",
-			"useJwt": true  
+			"useJwt": true  ,
+            "customerKey": "5b7957f6-3bab-418c-993d-94f6c19500a4"
       },
        "publish": {
             "url": "https://leemsecond.herokuapp.com/mc_test/publish/",
