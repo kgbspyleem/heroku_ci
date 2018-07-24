@@ -43,28 +43,28 @@ public class SampleController {
   	    @ResponseBody
   	    public String mc_save(@RequestParam(value="encodedJWT ", defaultValue="") String encodedJWT ,@RequestParam(value="secret", defaultValue="") String secret  ) {   
           	logger.info("encodedJWT secret =================================" + encodedJWT + "=============" + secret); 
-  	        return "save World!";
+  	        return "(\"status\" : \"ok\"}";
   	    }
   	    
         @RequestMapping(value = "/mc_test/publish" , method = RequestMethod.POST)
   	    @ResponseBody
   	    public String mc_publish(@RequestParam(value="encodedJWT ", defaultValue="") String encodedJWT ,@RequestParam(value="secret", defaultValue="") String secret  ) {   
           	logger.info("encodedJWT secret =================================" + encodedJWT + "=============" + secret); 
-  	        return "publish World!";
+  	        return "(\"status\" : \"ok\"}";
   	    }
   	    
         @RequestMapping(value = "/mc_test/validate", method = RequestMethod.POST)
   	    @ResponseBody
   	    public String mc_validate(@RequestParam(value="encodedJWT ", defaultValue="") String encodedJWT ,@RequestParam(value="secret", defaultValue="") String secret  ) {   
           	logger.info("encodedJWT secret =================================" + encodedJWT + "=============" + secret); 
-  	        return "validate World!";
+  	        return "(\"status\" : \"ok\"}";
   	    }
   	    
         @RequestMapping(value = "/mc_test/stop", method = RequestMethod.POST)
   	    @ResponseBody
   	    public String mc_stop(@RequestParam(value="encodedJWT ", defaultValue="") String encodedJWT ,@RequestParam(value="secret", defaultValue="") String secret  ) {   
           	logger.info("encodedJWT secret =================================" + encodedJWT + "=============" + secret); 
-  	        return "stop World!";
+  	        return "(\"status\" : \"ok\"}";
   	    }
   	    
 	    

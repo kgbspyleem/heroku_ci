@@ -20,47 +20,45 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
    protected void configure(final HttpSecurity http) throws Exception {
      logger.info("============================================== WebSecurityConfig configure");
  
-     http.authorizeRequests().antMatchers("/**").permitAll(); 
-//   http.authorizeRequests()
-//   .antMatchers("/test",
-//   		"/error",
-//   		"/sample",
-//   		"/execute",
-//   		"/hello",
-//           "/favicon.ico",
-//           "/404.html",
-//           "/403.html",
-//           "/500.html",
-//           "/sfdcauth/**",
-//           "/login",
-//           "/logout",
-//           "/password", 
-//
-//           "/mc_test/", 
-//           "/mc_test/**",  
-//           "/images/**",
-//           "/css/**",
-//           "/fonts/**",
-//           "/icons/**")
-//   .permitAll()
-//   /* Require all others to be authenticated */
-//   .anyRequest().authenticated()  
-//   .and()
-//   .formLogin()
-//   .loginPage("/error")
-//   .permitAll()
-//   .and()
-//   /* Add the filter that turns JWT into authentication */
-//   .addFilter(new CanvasAuthorizationFilter(this.authenticationManager()))
-//   /*
-//    * allow direct access to the POST form for Canvas use without a
-//    * _csrd token
-//    */
-//   .csrf()
-//   .ignoringAntMatchers("/sfdcauth/**")
-//   .and().exceptionHandling().accessDeniedPage("/error"); 
-//   http.headers().frameOptions().disable();
- 
-       
+     
+     http.authorizeRequests()
+     .antMatchers("/test",
+     		"/error",
+     		"/sample",
+     		"/execute",
+     		"/hello",
+             "/favicon.ico",
+             "/404.html",
+             "/403.html",
+             "/500.html",
+             "/sfdcauth/**",
+             "/login",
+             "/logout",
+             "/password", 
+  
+             "/mc_test/", 
+             "/mc_test/**",  
+             "/images/**",
+             "/css/**",
+             "/fonts/**",
+             "/icons/**")
+     .permitAll()
+     /* Require all others to be authenticated */
+     .anyRequest().authenticated()  
+     .and()
+     .formLogin()
+     .loginPage("/error")
+     .permitAll()
+     .and()
+     /* Add the filter that turns JWT into authentication */
+     .addFilter(new CanvasAuthorizationFilter(this.authenticationManager()))
+     /*
+      * allow direct access to the POST form for Canvas use without a
+      * _csrd token
+      */
+     .csrf()
+     .ignoringAntMatchers("/sfdcauth/**")
+     .and().exceptionHandling().accessDeniedPage("/error"); 
+     http.headers().frameOptions().disable();
    }
 }
