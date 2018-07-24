@@ -26,19 +26,7 @@ public class SampleController {
 	    	model.addAttribute("name", "SpringBlog from Millky");
 	        return "hello";
 	    } 
-	    
-	    @RequestMapping(value="/mc_test/test", method= RequestMethod.POST, produces = "application/json") 
-        public String test( ) {   
-	     //   	logger.info("encodedJWT secret =================================" + encodedJWT + "=============" + secret); 
-		        return "Hello test!";
-		    }
-	    
-	    @PostMapping(value = "/mc_test/execute")
-	    @ResponseBody
-	    public String execute(@RequestParam(value="encodedJWT ", defaultValue="") String encodedJWT ,@RequestParam(value="secret", defaultValue="") String secret  ) {   
-        	logger.info("encodedJWT secret =================================" + encodedJWT + "=============" + secret); 
-	        return "Hello World!";
-	    }
+	 
 	   
   	    
   	    @RequestMapping(value="/mc_test/save", method= RequestMethod.POST, produces = "application/json") 
@@ -46,27 +34,7 @@ public class SampleController {
        //   	logger.info("encodedJWT secret =================================" + encodedJWT + "=============" + secret); 
   	        return "(\"status\" : \"ok\"}";
   	    }
-  	    
-	    @PostMapping(value = "/mc_test/publish")
-  	    @ResponseBody
-  	    public String mc_publish(@RequestParam(value="encodedJWT ", defaultValue="") String encodedJWT ,@RequestParam(value="secret", defaultValue="") String secret  ) {   
-          	logger.info("encodedJWT secret =================================" + encodedJWT + "=============" + secret); 
-  	        return "(\"status\" : \"ok\"}";
-  	    }
-  	    
-	    @PostMapping(value = "/mc_test/validate")
-  	    @ResponseBody
-  	    public String mc_validate(@RequestParam(value="encodedJWT ", defaultValue="") String encodedJWT ,@RequestParam(value="secret", defaultValue="") String secret  ) {   
-          	logger.info("encodedJWT secret =================================" + encodedJWT + "=============" + secret); 
-  	        return "(\"status\" : \"ok\"}";
-  	    }
-  	    
-	    @PostMapping(value = "/mc_test/stop")
-  	    @ResponseBody
-  	    public String mc_stop(@RequestParam(value="encodedJWT ", defaultValue="") String encodedJWT ,@RequestParam(value="secret", defaultValue="") String secret  ) {   
-          	logger.info("encodedJWT secret =================================" + encodedJWT + "=============" + secret); 
-  	        return "(\"status\" : \"ok\"}";
-  	    }
+   
   	    
 	    
 }
