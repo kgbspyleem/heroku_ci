@@ -28,8 +28,8 @@ public class SampleController {
 	    } 
 	   
 	    @PostMapping(value = "/mc_test/test") 
-        public String test(@RequestParam(value="encodedJWT ", defaultValue="") String encodedJWT ,@RequestParam(value="secret", defaultValue="") String secret  ) {   
-	        	logger.info("encodedJWT secret =================================" + encodedJWT + "=============" + secret); 
+        public String test( ) {   
+	     //   	logger.info("encodedJWT secret =================================" + encodedJWT + "=============" + secret); 
 		        return "Hello test!";
 		    }
 	    
