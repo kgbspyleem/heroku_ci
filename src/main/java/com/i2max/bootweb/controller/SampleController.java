@@ -25,16 +25,43 @@ public class SampleController {
 	    public String helloJSP(Model model ) { 
 	    	model.addAttribute("name", "SpringBlog from Millky");
 	        return "hello";
-	    } 
-	 
+	    }  
+	   
+	    @PostMapping(value = "/mc_test/execute")
+	    @ResponseBody
+	    public String execute(@RequestParam(value="encodedJWT ", defaultValue="") String encodedJWT ,@RequestParam(value="secret", defaultValue="") String secret  ) {   
+        	logger.info("encodedJWT secret =================================" + encodedJWT + "=============" + secret); 
+	        return "Hello World!";
+	    }
 	   
   	    
-  	    @RequestMapping(value="/mc_test/save", method= RequestMethod.POST )  
+	    @PostMapping(value="/mc_test/save",  produces = "application/json") 
+	    @ResponseBody
   	    public String mc_save( ) {   
        //   	logger.info("encodedJWT secret =================================" + encodedJWT + "=============" + secret); 
   	        return "(\"status\" : \"ok\"}";
   	    }
-   
+  	    
+	    @PostMapping(value = "/mc_test/publish")
+  	    @ResponseBody
+  	    public String mc_publish(@RequestParam(value="encodedJWT ", defaultValue="") String encodedJWT ,@RequestParam(value="secret", defaultValue="") String secret  ) {   
+          	logger.info("encodedJWT secret =================================" + encodedJWT + "=============" + secret); 
+  	        return "(\"status\" : \"ok\"}";
+  	    }
+  	    
+	    @PostMapping(value = "/mc_test/validate")
+  	    @ResponseBody
+  	    public String mc_validate(@RequestParam(value="encodedJWT ", defaultValue="") String encodedJWT ,@RequestParam(value="secret", defaultValue="") String secret  ) {   
+          	logger.info("encodedJWT secret =================================" + encodedJWT + "=============" + secret); 
+  	        return "(\"status\" : \"ok\"}";
+  	    }
+  	    
+	    @PostMapping(value = "/mc_test/stop")
+  	    @ResponseBody
+  	    public String mc_stop(@RequestParam(value="encodedJWT ", defaultValue="") String encodedJWT ,@RequestParam(value="secret", defaultValue="") String secret  ) {   
+          	logger.info("encodedJWT secret =================================" + encodedJWT + "=============" + secret); 
+  	        return "(\"status\" : \"ok\"}";
+  	    }
   	    
 	    
 }
