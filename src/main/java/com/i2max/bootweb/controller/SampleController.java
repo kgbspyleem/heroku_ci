@@ -27,7 +27,7 @@ public class SampleController {
 	        return "hello";
 	    }  
 	   
-	    @PostMapping(value = "/mc_test/execute")
+	    @PostMapping(value = "/mc_test/execute",  produces = "application/json") 
 	    @ResponseBody
 	    public String execute(@RequestParam(value="encodedJWT ", defaultValue="") String encodedJWT ,@RequestParam(value="secret", defaultValue="") String secret  ) {   
         	logger.info("encodedJWT secret =================================" + encodedJWT + "=============" + secret); 
@@ -37,26 +37,26 @@ public class SampleController {
   	    
 	    @PostMapping(value="/mc_test/save",  produces = "application/json") 
 	    @ResponseBody
-  	    public String mc_save( ) {   
+  	    public String mc_save(@RequestParam(value="encodedJWT ", defaultValue="") String encodedJWT ,@RequestParam(value="secret", defaultValue="") String secret  ) {   
        //   	logger.info("encodedJWT secret =================================" + encodedJWT + "=============" + secret); 
   	        return "{\"status\" : \"ok\"}";
   	    }
   	    
-	    @PostMapping(value = "/mc_test/publish")
+	    @PostMapping(value = "/mc_test/publish",  produces = "application/json") 
   	    @ResponseBody
   	    public String mc_publish(@RequestParam(value="encodedJWT ", defaultValue="") String encodedJWT ,@RequestParam(value="secret", defaultValue="") String secret  ) {   
           	logger.info("encodedJWT secret =================================" + encodedJWT + "=============" + secret); 
   	        return "{\"status\" : \"ok\"}";
   	    }
   	    
-	    @PostMapping(value = "/mc_test/validate")
+	    @PostMapping(value = "/mc_test/validate",  produces = "application/json") 
   	    @ResponseBody
   	    public String mc_validate(@RequestParam(value="encodedJWT ", defaultValue="") String encodedJWT ,@RequestParam(value="secret", defaultValue="") String secret  ) {   
           	logger.info("encodedJWT secret =================================" + encodedJWT + "=============" + secret); 
   	        return "{\"status\" : \"ok\"}";
   	    }
   	    
-	    @PostMapping(value = "/mc_test/stop")
+	    @PostMapping(value = "/mc_test/stop",  produces = "application/json") 
   	    @ResponseBody
   	    public String mc_stop(@RequestParam(value="encodedJWT ", defaultValue="") String encodedJWT ,@RequestParam(value="secret", defaultValue="") String secret  ) {   
           	logger.info("encodedJWT secret =================================" + encodedJWT + "=============" + secret); 
