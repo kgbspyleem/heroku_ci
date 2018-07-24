@@ -46,111 +46,111 @@ import io.jsonwebtoken.Jwts;
  * Authorization filter that captures a JWT Token from session or Cookie and
  * authenticates the user based on that token 
  */
-public class CanvasAuthorizationFilter extends BasicAuthenticationFilter { 
+public class CanvasAuthorizationFilter { //extends BasicAuthenticationFilter { 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    public CanvasAuthorizationFilter(final AuthenticationManager authenticationManager) {
-        super(authenticationManager);
-    }
-
-    /**
-     * @see org.springframework.security.web.authentication.www.BasicAuthenticationFilter#doFilterInternal(javax.servlet.http.HttpServletRequest,
-     *      javax.servlet.http.HttpServletResponse, javax.servlet.FilterChain)
-     */
-    @Override
-    protected void doFilterInternal(final HttpServletRequest request, final HttpServletResponse response,
-            final FilterChain chain)
-            throws IOException, ServletException {
-
-        final String jwtPayload = this.getJwtPayload(request);
-
-        // Check if we have a JWT we can process
-        if ((jwtPayload != null) && !"null".equals(jwtPayload)) {
-            final Authentication authentication = this.extractAuthentication(jwtPayload);
-            if (authentication != null) {
-                SecurityContextHolder.getContext().setAuthentication(authentication);
-                // TODO: Should we renew the token?
-            }
-        }
-
-        chain.doFilter(request, response);
-    }
-
-    /**
-     * Extract credentials from a jwtString
-     *
-     * @param jwtHeader
-     *            header might be null
-     * @param jwtCookie
-     *            might be null, but not both
-     * @return an Authentication object
-     */
-    private Authentication extractAuthentication(final String jwtCookie) {
-
-        Authentication result = null;
-        String user = null;
-        final Collection<GrantedAuthority> roles = new ArrayList<>();
-        // Now get user and claims (roles)
-        try {
-            final Claims claims = Jwts.parser()
-                    .setSigningKey(Config.PARAMS.getSecret())
-                    .parseClaimsJws(jwtCookie)
-                    .getBody();
-            for (final Entry<String, Object> entry : claims.entrySet()) {
-                if (entry.getKey().equals(SecurityConstants.USER_NAME_CLAIM)) {
-                    user = String.valueOf(entry.getValue());
-                } else {
-                    final String roleCandidate = String.valueOf(entry.getValue());
-                    if (roleCandidate.startsWith(SecurityConstants.ROLE_PREFIX)) {
-                        roles.add(new CanvasGrantedAuthority(
-                                roleCandidate));
-                    } else {
-                        // TODO: other claims here?
-                    }
-                }
-            }
-
-            if (user != null) {
-                result = new UsernamePasswordAuthenticationToken(user, UUID.randomUUID().toString(), roles);
-            }
-        } catch (final ExpiredJwtException expired) {
-        	logger.info("=========================== JWT expired " + expired.getMessage() );  
-        	 
-        } catch (final Exception e) { 
-
-        	logger.info("===========================  " + e.getMessage());  
-            result = null;
-        }
-        return result;
-    }
-
-    /**
-     * Extract the cookie we need from the request
-     *
-     * @param request
-     *            HTTP Request
-     * @return a cookie or null
-     */
-    private String getJwtPayload(final HttpServletRequest request) {
-        String result = null;
-
-        // First we look in the session
-        final Object o = request.getSession().getAttribute(SecurityConstants.COOKIE_ATTRIBUTE);
-        if ((o != null) && !"".equals(o)) {
-            result = String.valueOf(o);
-        } else {
-            // Then in the cookies
-            final Cookie[] cookies = request.getCookies();
-            if (cookies != null) {
-                for (int i = 0; i < cookies.length; i++) {
-                    final Cookie currentCookie = cookies[i];
-                    if (currentCookie.getName().equals(SecurityConstants.COOKIE_NAME)) {
-                        result = currentCookie.getValue();
-                        break;
-                    }
-                }
-            }
-        }
-        return result;
-    }
+ //   public CanvasAuthorizationFilter(final AuthenticationManager authenticationManager) {
+ //       super(authenticationManager);
+ //   }
+ //
+ //   /**
+ //    * @see org.springframework.security.web.authentication.www.BasicAuthenticationFilter#doFilterInternal(javax.servlet.http.HttpServletRequest,
+ //    *      javax.servlet.http.HttpServletResponse, javax.servlet.FilterChain)
+ //    */
+ //   @Override
+ //   protected void doFilterInternal(final HttpServletRequest request, final HttpServletResponse response,
+ //           final FilterChain chain)
+ //           throws IOException, ServletException {
+ //
+ //       final String jwtPayload = this.getJwtPayload(request);
+ //
+ //       // Check if we have a JWT we can process
+ //       if ((jwtPayload != null) && !"null".equals(jwtPayload)) {
+ //           final Authentication authentication = this.extractAuthentication(jwtPayload);
+ //           if (authentication != null) {
+ //               SecurityContextHolder.getContext().setAuthentication(authentication);
+ //               // TODO: Should we renew the token?
+ //           }
+ //       }
+ //
+ //       chain.doFilter(request, response);
+ //   }
+ //
+ //   /**
+ //    * Extract credentials from a jwtString
+ //    *
+ //    * @param jwtHeader
+ //    *            header might be null
+ //    * @param jwtCookie
+ //    *            might be null, but not both
+ //    * @return an Authentication object
+ //    */
+ //   private Authentication extractAuthentication(final String jwtCookie) {
+ //
+ //       Authentication result = null;
+ //       String user = null;
+ //       final Collection<GrantedAuthority> roles = new ArrayList<>();
+ //       // Now get user and claims (roles)
+ //       try {
+ //           final Claims claims = Jwts.parser()
+ //                   .setSigningKey(Config.PARAMS.getSecret())
+ //                   .parseClaimsJws(jwtCookie)
+ //                   .getBody();
+ //           for (final Entry<String, Object> entry : claims.entrySet()) {
+ //               if (entry.getKey().equals(SecurityConstants.USER_NAME_CLAIM)) {
+ //                   user = String.valueOf(entry.getValue());
+ //               } else {
+ //                   final String roleCandidate = String.valueOf(entry.getValue());
+ //                   if (roleCandidate.startsWith(SecurityConstants.ROLE_PREFIX)) {
+ //                       roles.add(new CanvasGrantedAuthority(
+ //                               roleCandidate));
+ //                   } else {
+ //                       // TODO: other claims here?
+ //                   }
+ //               }
+ //           }
+ //
+ //           if (user != null) {
+ //               result = new UsernamePasswordAuthenticationToken(user, UUID.randomUUID().toString(), roles);
+ //           }
+ //       } catch (final ExpiredJwtException expired) {
+ //       	logger.info("=========================== JWT expired " + expired.getMessage() );  
+ //       	 
+ //       } catch (final Exception e) { 
+ //
+ //       	logger.info("===========================  " + e.getMessage());  
+ //           result = null;
+ //       }
+ //       return result;
+ //   }
+ //
+ //   /**
+ //    * Extract the cookie we need from the request
+ //    *
+ //    * @param request
+ //    *            HTTP Request
+ //    * @return a cookie or null
+ //    */
+ //   private String getJwtPayload(final HttpServletRequest request) {
+ //       String result = null;
+ //
+ //       // First we look in the session
+ //       final Object o = request.getSession().getAttribute(SecurityConstants.COOKIE_ATTRIBUTE);
+ //       if ((o != null) && !"".equals(o)) {
+ //           result = String.valueOf(o);
+ //       } else {
+ //           // Then in the cookies
+ //           final Cookie[] cookies = request.getCookies();
+ //           if (cookies != null) {
+ //               for (int i = 0; i < cookies.length; i++) {
+ //                   final Cookie currentCookie = cookies[i];
+ //                   if (currentCookie.getName().equals(SecurityConstants.COOKIE_NAME)) {
+ //                       result = currentCookie.getValue();
+ //                       break;
+ //                   }
+ //               }
+ //           }
+ //       }
+ //       return result;
+ //   }
 }
