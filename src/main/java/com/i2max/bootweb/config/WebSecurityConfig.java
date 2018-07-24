@@ -10,8 +10,8 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 
 import com.i2max.bootweb.controller.security.CanvasAuthorizationFilter;
  
-@Configuration
-@EnableWebSecurity
+//@Configuration
+//@EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
   
 	private static final Logger logger = LoggerFactory.getLogger(WebSecurityConfig.class);  
