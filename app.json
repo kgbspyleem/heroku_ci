@@ -1,0 +1,52 @@
+{
+  "name": "heroku_ci",
+  "scripts": {
+  },
+  "env": {
+    "ACCOUNT_TEST": {
+      "required": true
+    },
+    "RABBITMQ_BIGWIG_REST_API_URL": {
+      "required": true
+    },
+    "RABBITMQ_BIGWIG_RX_URL": {
+      "required": true
+    },
+    "RABBITMQ_BIGWIG_TX_URL": {
+      "required": true
+    },
+    "RABBITMQ_BIGWIG_URL": {
+      "required": true
+    },
+    "TD_API_KEY": {
+      "required": true
+    },
+    "TD_URL": {
+      "required": true
+    },
+    "XPLENTY_ACCOUNT_ID": {
+      "required": true
+    },
+    "XPLENTY_API_KEY": {
+      "required": true
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1
+    },
+    "worker": {
+      "quantity": 1
+    }
+  },
+  "addons": [
+    "heroku-postgresql",
+    "rabbitmq-bigwig",
+    "xplenty"
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/java"
+    }
+  ]
+}
