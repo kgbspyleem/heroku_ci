@@ -1,0 +1,34 @@
+{
+  "name": "heroku_ci",
+  "scripts": {
+  },
+  "env": {
+    "ACCOUNT_TEST": "8562396454366639613",
+    "RABBITMQ_BIGWIG_REST_API_URL": "https://0hPScCA7:eYwXkzyoR2-L2zD2uy-IdsQX-6AruKeF@bigwig.lshift.net/management/196458/api",
+    "RABBITMQ_BIGWIG_RX_URL": "amqp://0hPScCA7:eYwXkzyoR2-L2zD2uy-IdsQX-6AruKeF@happy-ragwort-3.bigwig.lshift.net:11057/EjDk0OsHhL0f",
+    "RABBITMQ_BIGWIG_TX_URL": "amqp://0hPScCA7:eYwXkzyoR2-L2zD2uy-IdsQX-6AruKeF@happy-ragwort-3.bigwig.lshift.net:11056/EjDk0OsHhL0f",
+    "RABBITMQ_BIGWIG_URL": "amqp://0hPScCA7:eYwXkzyoR2-L2zD2uy-IdsQX-6AruKeF@happy-ragwort-3.bigwig.lshift.net:11056/EjDk0OsHhL0f",
+    "TD_API_KEY": "9413/52503ae55e0931227cc3516a2a894280b6d40882",
+    "TD_URL": "jdbc:td://api.treasuredata.com/test",
+    "XPLENTY_ACCOUNT_ID": "leemfirst-heroku-2",
+    "XPLENTY_API_KEY": "jRYxUQXADvoSXkL56cgu"
+  },
+  "formation": {
+    "web": {
+      "quantity": 1
+    },
+    "worker": {
+      "quantity": 1
+    }
+  },
+  "addons": [
+    "heroku-postgresql",
+    "rabbitmq-bigwig",
+    "xplenty"
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/java"
+    }
+  ]
+}
