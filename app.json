@@ -11,6 +11,7 @@
       "quantity": 1
     } 
   },
+  
   "addons": [
     "heroku-postgresql" ,
     "cloudamqp"
