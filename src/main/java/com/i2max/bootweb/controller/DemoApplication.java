@@ -14,8 +14,7 @@ import org.springframework.stereotype.*;
  
 
 @Controller 
-@SpringBootApplication 
-//@EnableAutoConfiguration(exclude = {ErrorMvcAutoConfiguration.class })
+@SpringBootApplication  
 @ComponentScan(basePackages = "com.i2max.bootweb") 
 public class DemoApplication { 
 
