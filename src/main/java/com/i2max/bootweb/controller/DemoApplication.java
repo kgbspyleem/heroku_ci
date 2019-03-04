@@ -30,10 +30,8 @@ public class DemoApplication {
     @RequestMapping("/test1")
     @ResponseBody
     String home1() { 
-      return "Hello Worldsddasasd!";
-    }
-    
- 
+      return "Hello Worlds";
+    } 
      
 
     public static void main(String[] args) {
